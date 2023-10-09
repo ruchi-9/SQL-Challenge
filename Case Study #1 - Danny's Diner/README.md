@@ -4,7 +4,7 @@
 ## Table of Contents
 - [Problem Statement](#problem-statement)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
-- [Datasets](#question-and-solution)
+- [Datasets](#datasets)
 - [Question and Solution](#question-and-solution)
 
 ## Problem Statement

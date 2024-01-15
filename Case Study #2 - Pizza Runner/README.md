@@ -32,3 +32,59 @@ We need to clean the table:
 - Create a temporary table with all the columns
 - Remove null values in `exlusions` and `extras` columns and replace with blank space ' '.
 <img width="1063" alt="image" src="https://user-images.githubusercontent.com/81607668/129472388-86e60221-7107-4751-983f-4ab9d9ce75f0.png">
+````sql
+CREATE TEMP TABLE customer_orders_temp AS
+SELECT 
+  order_id, 
+  customer_id, 
+  pizza_id, 
+  CASE
+	  WHEN exclusions IS null OR exclusions LIKE 'null' THEN ' '
+	  ELSE exclusions
+	  END AS exclusions,
+  CASE
+	  WHEN extras IS NULL or extras LIKE 'null' THEN ' '
+	  ELSE extras
+	  END AS extras,
+	order_time
+FROM pizza_runner.customer_orders;
+`````
+
+### 🔨 Table: runner_orders
+
+Our course of action to clean the  `runner_orders` table below:
+- In `pickup_time` column, remove nulls and replace with blank space ' '.
+- In `distance` column, remove "km" and nulls and replace with blank space ' '.
+- In `duration` column, remove "minutes", "minute" and nulls and replace with blank space ' '.
+- In `cancellation` column, remove NULL and null and and replace with blank space ' '.
+
+<img width="1037" alt="image" src="https://user-images.githubusercontent.com/81607668/129472585-badae450-52d2-442e-9d50-e4d0d8fce83a.png">
+
+````sql
+CREATE TEMP TABLE runner_orders_temp AS
+SELECT 
+  order_id, 
+  runner_id,  
+  CASE
+	  WHEN pickup_time LIKE 'null' THEN ' '
+	  ELSE pickup_time
+	  END AS pickup_time,
+  CASE
+	  WHEN distance LIKE 'null' THEN ' '
+	  WHEN distance LIKE '%km' THEN TRIM('km' from distance)
+	  ELSE distance 
+    END AS distance,
+  CASE
+	  WHEN duration LIKE 'null' THEN ' '
+	  WHEN duration LIKE '%mins' THEN TRIM('mins' from duration)
+	  WHEN duration LIKE '%minute' THEN TRIM('minute' from duration)
+	  WHEN duration LIKE '%minutes' THEN TRIM('minutes' from duration)
+	  ELSE duration
+	  END AS duration,
+  CASE
+	  WHEN cancellation IS NULL or cancellation LIKE 'null' THEN ' '
+	  ELSE cancellation
+	  END AS cancellation
+FROM pizza_runner.runner_orders;
+````
+

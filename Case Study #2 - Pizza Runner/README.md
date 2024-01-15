@@ -7,7 +7,7 @@
 - [Business Task](#business-task)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - Solution
-  - [Data Cleaning and Transformation](#data-cleaning--transformation)
+  - [Data Cleaning and Transformation](#data-cleaning-transformation)
   - [A. Pizza Metrics](#a-pizza-metrics)
   - [B. Runner and Customer Experience](#b-runner-and-customer-experience)
   - [C. Ingredient Optimisation](#c-ingredient-optimisation)

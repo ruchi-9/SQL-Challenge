@@ -7,7 +7,7 @@
 - [Business Task](#business-task)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - Solution
-  - [Data Cleaning and Transformation](#-data-cleaning--transformation)
+  - [Data Cleaning and Transformation](#data-cleaning--transformation)
   - [A. Pizza Metrics](#a-pizza-metrics)
   - [B. Runner and Customer Experience](#b-runner-and-customer-experience)
   - [C. Ingredient Optimisation](#c-ingredient-optimisation)
@@ -50,7 +50,7 @@ SELECT
 FROM pizza_runner.customer_orders;
 `````
 
-### 🔨 Table: runner_orders
+### Table: runner_orders
 
 Our course of action to clean the  `runner_orders` table below:
 - In `pickup_time` column, remove nulls and replace with blank space ' '.
